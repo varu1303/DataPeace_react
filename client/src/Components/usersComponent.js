@@ -30,7 +30,7 @@ class Users extends React.Component {
     let users;
     let currentPage;
     sessionStorage.setItem('fiterText', val);
-    if (val) {
+    if (event) {
       users = JSON.parse(sessionStorage.getItem('Users')).filter(user => {
         return user.first_name.toLowerCase().indexOf(val) != -1;
       })
@@ -58,7 +58,8 @@ class Users extends React.Component {
         users,
         currentPage,
         usersToshow: users.slice(0, 5),
-        filterText: val
+        filterText: val,
+        currentScroll: currentPage
       }
     })
   }
