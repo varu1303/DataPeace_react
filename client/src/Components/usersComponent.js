@@ -302,6 +302,9 @@ class Users extends React.Component {
             <span onClick={ () => {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5 <= prevState.pages? prevState.currentScroll + 5 : prevState.pages}))} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
             <span onClick={ () => {this.setState((prevState) => ({ currentPage: prevState.pages, currentScroll: prevState.pages, usersToshow: prevState.users.slice((prevState.pages - 1) * 5, prevState.pages * 5)}))} }> LAST  </span>
         </p>
+        <p className="containP">
+            Page {this.state.currentPage} of {this.state.pages}
+        </p>
       </div>
     )
   }
