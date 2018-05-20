@@ -28,15 +28,18 @@ class Users extends React.Component {
   filterUsers = (event) => {
     let  val = event.target.value.toLowerCase();
     let users;
+    let currentPage;
     sessionStorage.setItem('fiterText', val);
     if (val) {
       users = JSON.parse(sessionStorage.getItem('Users')).filter(user => {
         return user.first_name.toLowerCase().indexOf(val) != -1;
       })
+      currentPage = 1;
     }else {
       users = JSON.parse(sessionStorage.getItem('Users'));
+      currentPage = sessionStorage.getItem('PageNum');
     }
-    sessionStorage.setItem('PageNum', 1);
+    sessionStorage.setItem('PageNum', currentPage);
     if (this.state.sortField === 'age' || this.state.sortField === 'zip') {
       if (this.state.sortOrder === 'a')
         users = users.sort(this.compareNumericalA)
@@ -53,7 +56,7 @@ class Users extends React.Component {
       return {
         pages: Math.ceil(users.length / 5),
         users,
-        currentPage: 1,
+        currentPage,
         usersToshow: users.slice(0, 5),
         filterText: val
       }
