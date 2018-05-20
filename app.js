@@ -10,6 +10,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen('3000', (req, res) => {
+app.listen(process.env.PORT || 3000, (req, res) => {
   console.log('Listening to port 3000');
 })
