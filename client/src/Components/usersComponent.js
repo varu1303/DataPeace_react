@@ -299,7 +299,7 @@ class Users extends React.Component {
               }
               )
             }
-            <span onClick={ () => {if (this.state.currentPage !== this.state.pages) {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5}))}} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
+            <span onClick={ () => {if (this.state.currentPage !== Math.ceil(this.state.usersToshow / 5)) {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5}))}} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
             <span onClick={ () => {this.setState((prevState) => ({ currentPage: prevState.pages, currentScroll: prevState.pages, usersToshow: prevState.users.slice((prevState.pages - 1) * 5, prevState.pages * 5)}))} }> LAST  </span>
         </p>
       </div>
