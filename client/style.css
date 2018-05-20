@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: inherit;
+  overflow-x: hidden;
+}
+
+span {
+  padding: 5px;
+}
+
+.current {
+  font-weight: bolder;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+}
+
+.dir {
+  font-weight: bolder;
+}
+
+.displaynone {
+  display: none;
+}
+
+.containP {
+  width: 100%;
+  text-align: center;
+  margin-top: 45px;
+}
+
+.searchBox {
+  width: 50%;
+}
+
+.filterBox {
+  margin: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .hideInMD {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .searchBox {
+    width: 70%;
+  }
+  
+  .hideInSM {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .searchBox {
+    width: 85%;
+  } 
+}
