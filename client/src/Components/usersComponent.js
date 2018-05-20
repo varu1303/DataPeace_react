@@ -150,7 +150,7 @@ class Users extends React.Component {
 
   componentDidMount() {
     if (!sessionStorage.getItem('Users')) {
-      axios.get('http://demo9197058.mockable.io/users')
+      axios.get('https://demo9197058.mockable.io/users')
       .then(data => {
         sessionStorage.setItem('Users', JSON.stringify(data.data));
         let currentPage = 1;
