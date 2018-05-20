@@ -291,7 +291,7 @@ class Users extends React.Component {
         </div>
         <Table users={this.state.usersToshow}/>
         <p className="containP">
-            <span onClick={ () => {this.setState(() => ({ currentPage: 1, currentScroll: 1}))} }> FIRST  </span>
+            <span onClick={ () => {this.setState((prevState) => ({ currentPage: 1, currentScroll: 1, usersToshow: prevState.users.slice(0, 5)}))} }> FIRST  </span>
             <span onClick={ () => {this.setState((prevState) => ({ currentScroll: prevState.currentScroll - 5}))} } className="dir"> <i className="fas fa-angle-left"></i>  </span>
               {this.state.pages && [...Array(this.state.pages)].map((e, i) => {
                 if ( i + 1 < this.state.currentScroll + 3 && i + 1 >= this.state.currentScroll - 2 )
@@ -300,7 +300,7 @@ class Users extends React.Component {
               )
             }
             <span onClick={ () => {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5}))} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
-            <span onClick={ () => {this.setState((prevState) => ({ currentPage: prevState.pages, currentScroll: prevState.pages}))} }> LAST  </span>
+            <span onClick={ () => {this.setState((prevState) => ({ currentPage: prevState.pages, currentScroll: prevState.pages, usersToshow: prevState.users.slice((prevState.pages - 1) * 5, prevState.pages * 5)}))} }> LAST  </span>
         </p>
       </div>
     )
