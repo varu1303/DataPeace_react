@@ -35,9 +35,8 @@ class Users extends React.Component {
       })
     }else {
       users = JSON.parse(sessionStorage.getItem('Users'));
-      sessionStorage.setItem('PageNum', 1);
     }
-
+    sessionStorage.setItem('PageNum', 1);
     if (this.state.sortField === 'age' || this.state.sortField === 'zip') {
       if (this.state.sortOrder === 'a')
         users = users.sort(this.compareNumericalA)
