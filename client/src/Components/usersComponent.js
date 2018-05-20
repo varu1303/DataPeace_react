@@ -292,14 +292,14 @@ class Users extends React.Component {
         <Table users={this.state.usersToshow}/>
         <p className="containP">
             <span onClick={ () => {this.setState((prevState) => ({ currentPage: 1, currentScroll: 1, usersToshow: prevState.users.slice(0, 5)}))} }> FIRST  </span>
-            <span onClick={ () => {this.setState((prevState) => ({ currentScroll: prevState.currentScroll - 5}))} } className="dir"> <i className="fas fa-angle-left"></i>  </span>
+            <span onClick={ () => {if (this.state.currentPage !== 1) {this.setState((prevState) => ({ currentScroll: prevState.currentScroll - 5}))}} } className="dir"> <i className="fas fa-angle-left"></i>  </span>
               {this.state.pages && [...Array(this.state.pages)].map((e, i) => {
                 if ( i + 1 < this.state.currentScroll + 3 && i + 1 >= this.state.currentScroll - 2 )
                   return (<span key={i} onClick={ this.changePage } className={this.state.currentPage === i + 1 ? 'current' : null}> {i + 1}  </span>)
               }
               )
             }
-            <span onClick={ () => {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5}))} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
+            <span onClick={ () => {if (this.state.currentPage !== this.state.pages) {this.setState((prevState) => ({ currentScroll: prevState.currentScroll + 5}))}} } className="dir"> <i className="fas fa-angle-right"></i>  </span>
             <span onClick={ () => {this.setState((prevState) => ({ currentPage: prevState.pages, currentScroll: prevState.pages, usersToshow: prevState.users.slice((prevState.pages - 1) * 5, prevState.pages * 5)}))} }> LAST  </span>
         </p>
       </div>
